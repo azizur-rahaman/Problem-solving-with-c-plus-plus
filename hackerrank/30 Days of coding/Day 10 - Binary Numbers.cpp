@@ -9,8 +9,8 @@ int main()
     cin.ignore();
     
     string binary="";
-    int counter;
-    int temp;
+    int counter=0;
+    int temp=0;
     bool counterInitialize=false;
     
     //convert n to binary number system
@@ -23,11 +23,9 @@ int main()
     for (int i=0; i<binary.length(); i++) {
       
       if(binary[i]=='1'){
-          
           if(counterInitialize==false) {
               counter++;
-          }
-          else {
+          }else {
               temp++;
           }
       }else{
@@ -36,9 +34,14 @@ int main()
           }
           if(temp>counter){
               counter=temp;
-          }
+        }
+          
+        temp=0;
       }
-      temp=0;
+       if(temp>counter){
+              counter=temp;
+        }
+        
         
     }
     cout<<counter<<endl;
