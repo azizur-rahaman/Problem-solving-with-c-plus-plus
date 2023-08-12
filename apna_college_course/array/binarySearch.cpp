@@ -40,8 +40,5 @@ int main(){
 
     cout<<binarySearch(arr, n, value)<<endl;
 
-    
-
-
-
+return 0;
 }
