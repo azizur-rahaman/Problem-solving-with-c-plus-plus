@@ -1,30 +1,39 @@
-#include<bits/stdc++.h>
+#include <iostream>
+#include <vector>
+
 using namespace std;
 
-int main(){
-    ios_base::sync_with_stdio(false);
-    cin.tie(0);
-    cout.tie(0);
-
-    int r,c;
-    cin>>r>>c;
-
-    char arr[r][c]={0};
-
-    for (int i = 0; i < r; i++)
-    {
-        for (int j = 0; j < c; j++)
-        {
-            cin>>arr[i][j];
-        }
-    }
-
-    for (int i = 0; i < r; i++)
-    {
-        for (int j = 0; j < c; j++)
-        {
-            cin>>arr[i][j];
-        }
-    }
+int main() {
+    int n, x;
+    cin >> n >> x;
     
+    vector<string> cake(n);
+    vector<bool> eRow(n, true), eCol(x, true);
+    
+    for (int i = 0; i < n; ++i) {
+        cin >> cake[i];
+        for (int j = 0; j < x; ++j) {
+            if (cake[i][j] == 'S') {
+                eRow[i] = false;
+                eCol[j] = false;
+            }
+        }
+    }
+
+    int totalEaten = 0;
+    for (int i = 0; i < n; ++i) {
+        if (eRow[i]) totalEaten += x;
+    }
+
+    for (int j = 0; j < x; ++j) {
+        if (eCol[j]) {
+            for (int i = 0; i < n; ++i) {
+                if (!eRow[i]) totalEaten++;
+            }
+        }
+    }
+
+    cout << totalEaten << endl;
+
+    return 0;
 }
