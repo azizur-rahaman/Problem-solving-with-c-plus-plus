@@ -89,6 +89,7 @@ int main(){
 
 // Problem - 10 (ii)
 #include<stdio.h>
+#include<math.h>
 
 int main(){
     int a,b;
