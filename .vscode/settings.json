@@ -106,7 +106,8 @@
         "stacktrace": "cpp",
         "stdfloat": "cpp",
         "syncstream": "cpp",
-        "__memory": "c"
+        "__memory": "c",
+        "__tree": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
