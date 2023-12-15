@@ -10,6 +10,7 @@ int main() {
     scanf("%d", &non_zero_number);
    
    if(non_zero_number == 1) flag=true;
+   else if( non_zero_number == 0) flag =false;
    else {
         while ( non_zero_number != 1)
         {
