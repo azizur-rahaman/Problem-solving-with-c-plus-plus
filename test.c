@@ -1,32 +1,40 @@
 #include <stdio.h>
-#include<stdbool.h>
+#include <math.h>
 
 
 int main() {
+    
+    double PI = 3.1416;
+    int choice;
+    double radius, area;
 
-    int non_zero_number;
-    bool flag = false;
+    printf("Choose a shape to compute the area:\n");
+    printf("1. Circle\n");
+    printf("2. Square (not implemented)\n");
+    printf("3. Triangle (not implemented)\n");
+    printf("Enter your choice (1, 2, or 3): ");
+    
+    scanf("%d", &choice);
 
-    scanf("%d", &non_zero_number);
-   
-   if(non_zero_number == 1) flag=true;
-   else if( non_zero_number == 0) flag =false;
-   else {
-        while ( non_zero_number != 1)
-        {
-            if(non_zero_number == 2) {
-
-            flag = true; 
-            break;
-            }
-            non_zero_number/=2;
-        }
-   
-   }
-   
-
-   printf("%s\n", flag? "YES":"NO");
-   
+    if (choice == 1) {
+        printf("Enter the radius of the circle: ");
+        scanf("%lf", &radius);
+        
+        area = PI * pow(radius, 2);
+        printf("The area is: %lf\n", area);
+    } 
+    else if (choice == 2) {
+        // Square (not implemented)
+        printf("Square calculation not implemented.\n");
+    } 
+    else if (choice == 3) {
+        // Triangle (not implemented)
+        printf("Triangle calculation not implemented.\n");
+    } 
+    else {
+        // Invalid choice
+        printf("Invalid choice. Please choose 1, 2, or 3.\n");
+    }
 
     return 0;
 }
