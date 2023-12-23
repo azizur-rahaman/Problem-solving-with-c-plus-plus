@@ -1,37 +1,33 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include <stdio.h>
+
 
 int main() {
     
-    int n,m;
-    cin>>n>>m;
+    int a,b, small;
+    scanf("%d%d", &a, &b);
 
-    multiset<int> n_mset;
-  
-
-    
-    for (int i = 0; i < n; i++)
-    {   
-        int temp;
-        cin>>temp;
-        n_mset.insert(temp);
+    if(a<b) {
+        small = a;
+    }else {
+        small = b;
     }
 
-    for (int i = 0; i < m; i++)
-    {   
-        int temp;
-        cin>>temp;
 
-        auto it = n_mset.upper_bound(temp);
+    int gcd = 0;
+    int i = 1; 
 
-        if(it == n_mset.begin()) cout<<"-1"<<endl;
-        else {
-            cout<< *(--it) <<endl;
-            n_mset.erase(it);
+    while (i <= small)
+    {
+        if(a % i == 0 && b % i == 0){
+            gcd = i;
         }
+
+        i++;
     }
+    
+    int lcm = (a*b) / gcd;
 
-
+    printf("g: %d \nL: %d", gcd, lcm);
 
     return 0;
 }
