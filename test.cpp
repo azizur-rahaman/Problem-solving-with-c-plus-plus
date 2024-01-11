@@ -1,33 +1,37 @@
-#include <stdio.h>
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long int
+bool isItPerfectSquare(ll n){
 
+    ll r = sqrt(n);
 
-int main() {
-    
-    int a,b, small;
-    scanf("%d%d", &a, &b);
+    return r * r == n;
+}
 
-    if(a<b) {
-        small = a;
-    }else {
-        small = b;
-    }
+int main(){
+    ll t;
+    cin>>t;
 
-
-    int gcd = 0;
-    int i = 1; 
-
-    while (i <= small)
+    while (t--)
     {
-        if(a % i == 0 && b % i == 0){
-            gcd = i;
+        ll n, sum=0;
+        cin>>n;
+
+        while (n--)
+        {   
+            ll temp;
+            cin>>temp;
+
+            sum+= temp;
         }
 
-        i++;
+        bool result = isItPerfectSquare(sum);
+
+        if(result) cout<<"YES"<<endl;
+        else cout<<"NO"<<endl;
+        
+
     }
-    
-    int lcm = (a*b) / gcd;
 
-    printf("g: %d \nL: %d", gcd, lcm);
-
-    return 0;
 }
+
