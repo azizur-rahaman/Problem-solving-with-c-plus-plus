@@ -3,32 +3,16 @@
 
 int main() {
     
-    int a, result = 0, p=0;
-    scanf("%d", &a);
+int dHour, dMinute;
+int mHour, mMinute;
 
-    int temp = a; // 503
+scanf("%d %d %d %d", &dHour, &dMinute, &mHour, &mMinute);
 
-    while ( temp != 0)
-    {
-        temp = temp / 10;
-        p++;
-    }
+int houreDifference = (dHour - mHour) * 60;
+int result = (houreDifference + dMinute) - mMinute;
 
-    temp = a; // 503
+// Here output showing in Minute
 
-    while (temp != 0)
-    {   
-        int remainder = temp % 10;
+printf("%d", result);
 
-        result += pow(remainder,p);
-        temp= temp / 10;
-    }
-    
-    if(result == a){
-        printf("Armstrong\n");
-    }else{
-        printf("Not Armstrong\n");
-    }
-
-    return 0;
 }
