@@ -1,37 +1,18 @@
 #include<bits/stdc++.h>
 using namespace std;
 #define ll long long int
-bool isItPerfectSquare(ll n){
 
-    ll r = sqrt(n);
-
-    return r * r == n;
-}
 
 int main(){
-    ll t;
-    cin>>t;
+    multimap<int,char> mm;
 
-    while (t--)
+    char c = 'a';
+
+    for (int i = 0; i < 10; i++)
     {
-        ll n, sum=0;
-        cin>>n;
-
-        while (n--)
-        {   
-            ll temp;
-            cin>>temp;
-
-            sum+= temp;
-        }
-
-        bool result = isItPerfectSquare(sum);
-
-        if(result) cout<<"YES"<<endl;
-        else cout<<"NO"<<endl;
-        
-
+        mm.insert(make_pair(0,i));
     }
-
+    
+    cout<< mm.find(0)->second <<endl;
+    // for ( pair<int,int> p : mm) cout<< p.first << " " << p.second << endl;
 }
-
