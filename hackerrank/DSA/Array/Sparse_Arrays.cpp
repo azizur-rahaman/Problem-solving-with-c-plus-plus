@@ -19,7 +19,6 @@ using namespace std;
 #define NO            cout<<"NO"<<endl
 #define cinvi(n,vect)    for(int i= 0; i<n; i++){ int temp; cin>>temp; vect.pb(temp);}
 
-
 #define sz(x)          ((int) x.size())
 #define all(p)         p.begin(), p.end()
 #define double         long double
@@ -54,9 +53,35 @@ void __f (const char* names, Arg1&& arg1, Args&&... args)
 const int N = 200005;
 
 void solve() {
-	int n, m;
-	cin >> n >> m;
-	bug(n, m);
+	int n,m;
+	cin >>n;
+
+    vector<string> stringList;
+    vector<string> queryList;
+
+    for (int i = 0; i < n; i++)
+    {
+        string s;
+        cin>>s;
+        stringList.pb(s);
+    }
+
+    cin>>m;
+    for (int i = 0; i < m; i++)
+    {
+        string s;
+        cin>>s;
+
+        auto it = count(stringList.begin(), stringList.end(), s);
+        cout<< it << endl;
+    }
+    
+
+
+    
+    
+
+	
 }
 
 int32_t main()
@@ -69,7 +94,7 @@ int32_t main()
 	// cin >> t;
 	while (t--) solve();
 
-	cerr << "Run Time : " << ((double)(clock() - z) / CLOCKS_PER_SEC);
+	// cerr << "Run Time : " << ((double)(clock() - z) / CLOCKS_PER_SEC);
 
 	return 0;
 }
