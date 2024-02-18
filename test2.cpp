@@ -1,18 +1,28 @@
 #include <stdio.h>
-#include<math.h>
+
+void printPattern(int n) {
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j <= n; j++) {
+            if (j == i || j == n - i - 1) {
+                printf("x");
+            } else {
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+}
 
 int main() {
-    
-int dHour, dMinute;
-int mHour, mMinute;
+    int n;
 
-scanf("%d %d %d %d", &dHour, &dMinute, &mHour, &mMinute);
+    scanf("%d", &n);
 
-int houreDifference = (dHour - mHour) * 60;
-int result = (houreDifference + dMinute) - mMinute;
+    if (n % 2 == 0) {
+        return 1;
+    }
 
-// Here output showing in Minute
+    printPattern(n);
 
-printf("%d", result);
-
+    return 0;
 }
