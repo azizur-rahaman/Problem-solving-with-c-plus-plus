@@ -1,0 +1,1 @@
+{"name":"Local: c","url":"/Users/hasnat/Documents/GitHub/Problem-solving-with-c-plus-plus/cpp practice/BCS/c.cpp","tests":[{"id":1708614593410,"input":"2\n3\n2 4 2\n3\n0 2 3","output":"1\n0"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/hasnat/Documents/GitHub/Problem-solving-with-c-plus-plus/cpp practice/BCS/c.cpp","group":"local","local":true}
