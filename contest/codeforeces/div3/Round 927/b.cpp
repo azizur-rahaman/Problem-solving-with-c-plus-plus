@@ -15,6 +15,8 @@ using namespace std;
 #define spi            set <pii>
 #define endl           "\n"
 
+#define fori(n)    for(int i = 0; i < n; i++)
+#define forij(n) for(int i = 0; i < n; i++) for(int j = 0; j < n; j++)
 #define YES            cout<<"YES"<<endl
 #define NO            cout<<"NO"<<endl
 #define cinvi(n,vect)    for(int i= 0; i<n; i++){ int temp; cin>>temp; vect.pb(temp);}
@@ -54,36 +56,16 @@ void __f (const char* names, Arg1&& arg1, Args&&... args)
 const int N = 200005;
 
 void solve() {
-    int n, result; 
-    cin>>n;
+	int n;
+	cin>>n;
+
     vi arr(n);
+    fori(n) {
+        
+    }
 
-    for (int i=0;i<n;i++)
-        cin>>arr[i];
-    
-        result = arr[0];
 
-        for (int i=1;i<n;i++){
-            if(arr[i]>result){
-                result = arr[i];
-            }else {
-                int c_temp = arr[i];
-                int j = 2;
-
-                while (c_temp <= result)
-                {
-                   c_temp = arr[i] * j;
-                   j++;
-                }
-                result = c_temp;
-                
-            }
-            
-        }
-        cout<<result<<endl;
-               
 }
-
 
 int32_t main()
 {
@@ -92,10 +74,10 @@ int32_t main()
 
 
 	int t = 1;
-	cin >> t;
+	// cin >> t;
 	while (t--) solve();
 
-	// cerr << "Run Time : " << ((double)(clock() - z) / CLOCKS_PER_SEC);
+	cerr << "Run Time : " << ((double)(clock() - z) / CLOCKS_PER_SEC);
 
 	return 0;
 }

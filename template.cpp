@@ -15,6 +15,8 @@ using namespace std;
 #define spi            set <pii>
 #define endl           "\n"
 
+#define fori(n)    for(int i = 0; i < n; i++)
+#define forij(n) for(int i = 0; i < n; i++) for(int j = 0; j < n; j++)
 #define YES            cout<<"YES"<<endl
 #define NO            cout<<"NO"<<endl
 #define cinvi(n,vect)    for(int i= 0; i<n; i++){ int temp; cin>>temp; vect.pb(temp);}
@@ -54,9 +56,14 @@ void __f (const char* names, Arg1&& arg1, Args&&... args)
 const int N = 200005;
 
 void solve() {
-	int n, m;
-	cin >> n >> m;
-	bug(n, m);
+	int n;
+	cin>>n;
+
+	vi arr(n);
+
+	fori(n) cin>>arr[i];
+
+	fori(n) cout<<arr[i]<<" ";
 }
 
 int32_t main()

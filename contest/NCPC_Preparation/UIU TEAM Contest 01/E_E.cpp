@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define int            long long int
 #define F              first
 #define S              second
 #define pb             push_back
@@ -15,6 +14,8 @@ using namespace std;
 #define spi            set <pii>
 #define endl           "\n"
 
+#define fori(n)    for(int i = 0; i < n; i++)
+#define forij(n) for(int i = 0; i < n; i++) for(int j = 0; j < n; j++)
 #define YES            cout<<"YES"<<endl
 #define NO            cout<<"NO"<<endl
 #define cinvi(n,vect)    for(int i= 0; i<n; i++){ int temp; cin>>temp; vect.pb(temp);}
@@ -53,35 +54,33 @@ void __f (const char* names, Arg1&& arg1, Args&&... args)
 
 const int N = 200005;
 
-
-
 void solve() {
-	int n;
-    cin>>n;
+	string ss;
+    cin>>ss;
 
-    vi arr(n);
-    cinvi(n,arr);
+    map<int,int> mpp;
 
-    int x = 0, y = 0;
-
-    bool flag = true;
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < n; j++)
-        {
-            if((arr[i] + arr[j]) == (arr[i] * arr[j])){
-                x = i + 1;
-                y = j + 1;   
-                flag = false;
-            }
-        }
-
-        if(flag == false) break;
+    
+    fori(sz(ss)){
         
+        ss[i] = tolower(ss[i]);
+        
+        if((ss[i] == 's' && ss[i+1] == 's') || (ss[i-1] == 's' && ss[i] == 's')){
+            mpp[i]++;
+        }
     }
 
-    cout<<
-    
+    cout<<ss<<endl;
+
+    for (const auto& p : mpp) {
+        for (int i = 0; i < p.second; i += 2) {
+            string str = ss;
+            str.replace(p.first-1, i+2, "B");
+            cout << str << endl;
+        }
+    }
+
+
 }
 
 int32_t main()
@@ -91,7 +90,7 @@ int32_t main()
 
 
 	int t = 1;
-	cin >> t;
+	// cin >> t;
 	while (t--) solve();
 
 	// cerr << "Run Time : " << ((double)(clock() - z) / CLOCKS_PER_SEC);
