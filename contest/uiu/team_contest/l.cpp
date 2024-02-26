@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+    #include <bits/stdc++.h>
 using namespace std;
 
 #define int            long long int
@@ -74,14 +74,20 @@ void sieve(int n){
 const int N = 200005;
 
 void solve() {
-	int n;
-	cin>>n;
+	
+    int n; 
+    cin>>n;
+    int maxx=0,sum=0;
+    fori(n){
+        int temp;
+        cin>>temp;
+        sum += temp;
+        maxx = max(maxx,temp);
+    }
 
-	vi arr(n);
+    if(sum >= (2*maxx)) cout<<(sum/2)<<endl;
+    else cout<< (sum-maxx) <<endl;
 
-	fori(n) cin>>arr[i];
-
-	fori(n) cout<<arr[i]<<" ";
 }
 
 int32_t main()
@@ -94,7 +100,11 @@ int32_t main()
 	// cin >> t;
 	while (t--) solve();
 
-	cerr << "Run Time : " << ((double)(clock() - z) / CLOCKS_PER_SEC);
+	// cerr << "Run Time : " << ((double)(clock() - z) / CLOCKS_PER_SEC);
 
 	return 0;
 }
+
+    
+    
+ 

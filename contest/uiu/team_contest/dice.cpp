@@ -74,14 +74,22 @@ void sieve(int n){
 const int N = 200005;
 
 void solve() {
-	int n;
-	cin>>n;
+	int f[10],s[10] ;
 
-	vi arr(n);
+    fori(6)
+        cin>>f[i];
+    fori(6)
+        cin>>s[i];
 
-	fori(n) cin>>arr[i];
+    double winner=0,draw=0,result=0;
 
-	fori(n) cout<<arr[i]<<" ";
+    forij(6){
+            if(f[i]>s[j])winner++;
+            else if(f[i]==s[j])draw++;
+    }
+    result=winner/(36-draw);
+    cout<<fixed<<setprecision(5);
+    cout<<result<<endl;
 }
 
 int32_t main()
@@ -94,7 +102,7 @@ int32_t main()
 	// cin >> t;
 	while (t--) solve();
 
-	cerr << "Run Time : " << ((double)(clock() - z) / CLOCKS_PER_SEC);
+	// cerr << "Run Time : " << ((double)(clock() - z) / CLOCKS_PER_SEC);
 
 	return 0;
 }
