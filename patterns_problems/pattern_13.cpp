@@ -16,7 +16,7 @@ int main(){
     
     int k=1, rows;
 
-    printf("Enter number of rows:");
+    // printf("Enter number of rows:");
     scanf("%d", &rows);
     int d_rows = rows * 2;
 
@@ -26,7 +26,7 @@ int main(){
         for (int j=1; j<= (d_rows-1) ; j++)
         {
             if(j>= (rows+1) -i && j<= (rows-1)+i) {
-                printf("%d", k);
+                printf("%d ", k);
                 j<= (rows-1)? k++: k--;
             }
             else printf(" ");
