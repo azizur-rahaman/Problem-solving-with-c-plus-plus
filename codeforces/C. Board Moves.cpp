@@ -114,10 +114,23 @@ void generateSubsequences(const vi& arr, int index, vi& subsequence, vvi& subseq
 const int N = 200005;
 
 void solve() {
-	int n;
+	int n, result=0;
 	cin>>n;
 
-	vi arr(n);
+    if(n==1){
+        cout<<0<<endl;
+        return;
+    }
+
+    int k = 8;
+    for (int i = 1 ; i <= n/2; i++)
+    {
+        result += (k*i);
+        k += 8;
+    }
+
+    cout<<result<<endl;
+    
 
 }
 
@@ -131,7 +144,7 @@ int32_t main()
 	cin >> t;
 	while (t--) solve();
 
-	cerr << "Run Time : " << ((double)(clock() - z) / CLOCKS_PER_SEC);
+	// cerr << "Run Time : " << ((double)(clock() - z) / CLOCKS_PER_SEC);
 
 	return 0;
 }
