@@ -17,7 +17,7 @@ using namespace std;
 #define endl           "\n"
 
 #define fori(n)    for(int i = 0; i < n; i++)
-#define forir(n)    for(int i = n-1; i >=0 ; i--)
+#define forir(n)    for(int i = n-1; i >= 0; i--)
 #define forij(n) for(int i = 0; i < n; i++) for(int j = 0; j < n; j++)
 #define YES            cout<<"YES"<<endl
 #define NO            cout<<"NO"<<endl
@@ -74,66 +74,55 @@ void sieve(int n){
 }
 
 
-void printSubArrays(const vi& arr, int start, int end, vector<vector<int>>& result) {
-  if (end == arr.size()) {
-    return;
-  }
-  else if (start > end) {
-    printSubArrays(arr, 0, end + 1, result);
-  }
-  else {
-    std::vector<int> subarray(arr.begin() + start, arr.begin() + end);
-    result.push_back(subarray);
-    printSubArrays(arr, start + 1, end, result);
-  }
 
-
-}
-
-
-void generateSubsequences(const vi& arr, int index, vi& subsequence, vvi& subsequences) {
-    int n = arr.size();
-
-    // Base case: If we reach the end of the array
-    if (index == n) {
-        // Add the current subsequence to the list of subsequences
-        subsequences.push_back(subsequence);
-        return;
-    }
-
-    // Exclude the current element
-    generateSubsequences(arr, index + 1, subsequence, subsequences);
-
-    // Include the current element
-    subsequence.push_back(arr[index]);
-    generateSubsequences(arr, index + 1, subsequence, subsequences);
-
-    // Backtrack to exclude the current element for the next iteration
-    subsequence.pop_back();
-}
 
 const int N = 200005;
 
-void solve() {
-	int n;
-	cin>>n;
 
-	vi arr(n);
-  fori(n) cin>>arr[i];
+void solve() {
+    int n;
+    cin>>n;
+
+    vi arr(n);
+    fori(n) cin>>arr[i];
+
+    int cnt1 = 0, cnt2 = 0;
+
+    fori(n){
+        if(arr[i] == arr[0]) cnt1++;
+        else {
+            break;
+        }
+    }
+
+    forir(n){
+        if(arr[i] == arr[n-1]) cnt2++;
+        else break;
+    }
+
+
+
+    int res = n;
+
+    if(arr[0] == arr[n-1]) res -= (cnt1+cnt2);
+    else res  -= max(cnt1,cnt2);
+    res = max((int)0,res);
+
+    cout<<res<<endl;
 
 }
 
 int32_t main()
 {
 	ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-	clock_t z = clock();
+	// clock_t z = clock();
 
 
 	int t = 1;
 	cin >> t;
 	while (t--) solve();
 
-	cerr << "Run Time : " << ((double)(clock() - z) / CLOCKS_PER_SEC);
+	// cerr << "Run Time : " << ((double)(clock() - z) / CLOCKS_PER_SEC);
 
 	return 0;
 }

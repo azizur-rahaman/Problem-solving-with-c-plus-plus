@@ -36,14 +36,14 @@ using namespace std;
 
 inline int power(int a, int b)
 {
-	int x = 1;
-	while (b)
-	{
-		if (b & 1) x *= a;
-		a *= a;
-		b >>= 1;
-	}
-	return x;
+    int x = 1;
+    while (b)
+    {
+        if (b & 1) x *= a;
+        a *= a;
+        b >>= 1;
+    }
+    return x;
 }
 
 template <typename Arg1>
@@ -51,8 +51,8 @@ void __f (const char* name, Arg1&& arg1) { cout << name << " : " << arg1 << endl
 template <typename Arg1, typename... Args>
 void __f (const char* names, Arg1&& arg1, Args&&... args)
 {
-	const char* comma = strchr (names + 1, ',');
-	cout.write (names, comma - names) << " : " << arg1 << " | "; __f (comma + 1, args...);
+    const char* comma = strchr (names + 1, ',');
+    cout.write (names, comma - names) << " : " << arg1 << " | "; __f (comma + 1, args...);
 }
 
 // find prime number
@@ -115,25 +115,27 @@ void generateSubsequences(const vi& arr, int index, vi& subsequence, vvi& subseq
 const int N = 200005;
 
 void solve() {
-	int n;
-	cin>>n;
 
-	vi arr(n);
-  fori(n) cin>>arr[i];
+    int x = 2 * pow(10,5);
+    vi arr(x);
+
+    for(x){
+        arr[i] = 
+    }
 
 }
 
 int32_t main()
 {
-	ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-	clock_t z = clock();
+    ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+    clock_t z = clock();
 
 
-	int t = 1;
-	cin >> t;
-	while (t--) solve();
+    int t = 1;
+    cin >> t;
+    while (t--) solve();
 
-	cerr << "Run Time : " << ((double)(clock() - z) / CLOCKS_PER_SEC);
+    cerr << "Run Time : " << ((double)(clock() - z) / CLOCKS_PER_SEC);
 
-	return 0;
+    return 0;
 }
