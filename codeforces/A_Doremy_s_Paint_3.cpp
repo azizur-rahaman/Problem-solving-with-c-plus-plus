@@ -16,7 +16,7 @@ using namespace std;
 #define spi set<pii>
 #define endl "\n"
 
-#define fori(n) for (int i = 0; i < n; i++)
+#define fori(n)  for (int i = 0; i < n; i++)
 #define forir(n) for (int i = n - 1; i >= 0; i--)
 #define forij(n)                \
     for (int i = 0; i < n; i++) \
@@ -138,28 +138,9 @@ const int N = 200005;
 void solve()
 {
     int n;
-    cin >> n;
-    map<int, int> occ;
-    
-    for (int i = 1; i <= n; ++i)
-    {
-        int x;
-        cin >> x;
-        occ[x]++;
-    }
-    if (occ.size() >= 3)
-        puts("No");
-    else
-    {
-        if (abs(occ.begin()->second - occ.rbegin()->second) <= 1)
-        {
-            puts("Yes");
-        }
-        else
-        {
-            puts("No");
-        }
-    }
+    vi arr(n);
+
+    fori(n) cin>>arr[i];
 }
 
 int32_t main()
