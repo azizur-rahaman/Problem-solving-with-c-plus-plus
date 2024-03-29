@@ -115,33 +115,31 @@ void generateSubsequences(const vi& arr, int index, vi& subsequence, vvi& subseq
 const int N = 200005;
 
 void solve() {
+    int n;
+    cin>>n;
 
-    int n,m, tt = 6, cnt=0;
-    cin>>n>>m;
-    cin.ignore();
-
-    string n_string, m_string;
-    cin>>n_string>>m_string;
-
+    pii pp = make_pair(0,0);
+    pii dp = make_pair(1,1);
 
     bool flag = false;
-    while (tt--)
-    {
-        if(n_string.find(m_string) != string::npos){
-            flag = true;
-            break;
-        }
 
-        cnt++;
-        n_string += n_string;
+    fori(n){
+        char ch;
+        cin>>ch;
+
+        if(ch == 'U') pp.second++;
+        else if( ch == 'R') pp.first++;
+        else if(ch == 'D') pp.second--;
+        else if(ch == 'L') pp.first--;
+
+        if(pp == dp) flag= true;
     }
-    
-    if(flag) 
-        cout<<cnt<<endl;
-    else cout<<-1<<endl;
+
+    if(flag) YES;
+    else NO;
 
 
-    
+
 }
 
 int32_t main()

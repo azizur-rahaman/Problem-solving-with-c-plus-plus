@@ -56,42 +56,45 @@ const int N = 200005;
 
 
 
-void solve() {
-	int n, sum = 0;
+void solve(vi &pre) {
+	int n;
     cin>>n;
 
-	int first = 1;
-	int last = 11;
-
-    for (int i = 1; i <= n; i++)
-    {      
-        if(i<=9) sum += i;
-		else {
-			
-		}
-    }
-
-    cout<<sum<<endl;
-    
-    
-    
-
+	cout<<pre[n]<<endl;
 }
-
-
-
 
 int32_t main()
 {
 	ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 	clock_t z = clock();
 
+
+	int N = 2 * pow(10,5);
+
+	vi pre(N);
+
+	for (int i = 0; i <= N; i++)
+	{
+		int sum=0;
+		int k = i;
+
+		while (k)
+		{
+			sum += (k%10);
+			k /= 10;
+		}
+
+		if(i == 0) pre[i]=0;
+		else pre[i] = sum + pre[i-1];
+	}
+	
+
 	int t = 1;
 	cin >> t;
-	while (t--) solve();
+	while (t--) solve(pre);
 
 
-	cerr << "Run Time : " << ((double)(clock() - z) / CLOCKS_PER_SEC);
+	// cerr << "Run Time : " << ((double)(clock() - z) / CLOCKS_PER_SEC);
 
 	return 0;
 }

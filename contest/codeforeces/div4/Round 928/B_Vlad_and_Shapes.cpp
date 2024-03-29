@@ -71,29 +71,20 @@ void solve() {
             cin>>temp;
 
             if(startI == -1 && temp == '1') {
-            startI = j;
-
+                startI = j;
             }else if( endBool && temp == '1') {
                 endI = j;
                 endBool = false;
             }
             
         }
-        endBool = true;
 
-        
+        endBool = true;
     }
 
-
-
-
-
-  
     if(startI == endI) cout<<"SQUARE"<<endl;
     else cout<<"TRIANGLE"<<endl;
     
-    
-
 }
 
 int32_t main()

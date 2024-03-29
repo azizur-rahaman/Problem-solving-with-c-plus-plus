@@ -115,39 +115,70 @@ void generateSubsequences(const vi& arr, int index, vi& subsequence, vvi& subseq
 const int N = 200005;
 
 void solve() {
+    int n;
+    cin>>n;
 
-    int n,m, tt = 6, cnt=0;
-    cin>>n>>m;
-    cin.ignore();
+    string str = to_string(n);
+    int len = str.length();
 
-    string n_string, m_string;
-    cin>>n_string>>m_string;
+    int cnt1 = 0;
+    
 
-
-    bool flag = false;
-    while (tt--)
-    {
-        if(n_string.find(m_string) != string::npos){
-            flag = true;
-            break;
+    for (int i = 0; i < len; i++)
+        if(str[i] == '1' || str[i] == '0') {
+            cnt1++;
         }
 
-        cnt++;
-        n_string += n_string;
+
+    if(cnt1 == len) {
+        YES;
+        return;
     }
-    
-    if(flag) 
-        cout<<cnt<<endl;
-    else cout<<-1<<endl;
 
 
-    
+    while (n>1)
+    {
+        bool flag = false;
+
+        vi arr;
+        for (int i = 1; i <= sqrt(n); i++) {
+            if (n % i == 0 && i != n / i) {
+                arr.pb(i);
+                arr.pb(n / i);
+            } else if (n%i == 0 && i == n / i) {
+                arr.pb(i);
+            }
+        }
+
+        sort(all(arr));
+        arr.erase(arr.begin());
+        reverse(all(arr));
+        
+        for (int i = 0; i < arr.size(); i++) {
+            string str = to_string(arr[i]);
+            int counter = count(str.begin(), str.end(), '0') + count(str.begin(), str.end(), '1');
+
+            if ( counter == str.size()) {
+                n /= arr[i];
+                flag = true;
+                break;
+            }
+        }
+        if (flag == false) {
+            NO;
+            return;
+        }
+        
+    }
+    YES;
+
 }
 
 int32_t main()
 {
     ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
     clock_t z = clock();
+
 
 
     int t = 1;
