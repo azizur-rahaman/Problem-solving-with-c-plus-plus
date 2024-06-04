@@ -1,4 +1,6 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
+#include <pthread.h>
+
 using namespace std;
 
 #define int            long long int
@@ -73,55 +75,31 @@ void sieve(int n){
     print(pr);    
 }
 
-
-void printSubArrays(const vi& arr, int start, int end, vector<vector<int>>& result) {
-  if (end == arr.size()) {
-    return;
-  }
-  else if (start > end) {
-    printSubArrays(arr, 0, end + 1, result);
-  }
-  else {
-    std::vector<int> subarray(arr.begin() + start, arr.begin() + end);
-    result.push_back(subarray);
-    printSubArrays(arr, start + 1, end, result);
-  }
-
-
-}
-
-
-void generateSubsequences(const vi& arr, int index, vi& subsequence, vvi& subsequences) {
-    int n = arr.size();
-
-    // Base case: If we reach the end of the array
-    if (index == n) {
-        // Add the current subsequence to the list of subsequences
-        subsequences.push_back(subsequence);
-        return;
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
     }
-
-    // Exclude the current element
-    generateSubsequences(arr, index + 1, subsequence, subsequences);
-
-    // Include the current element
-    subsequence.push_back(arr[index]);
-    generateSubsequences(arr, index + 1, subsequence, subsequences);
-
-    // Backtrack to exclude the current element for the next iteration
-    subsequence.pop_back();
+    return a;
 }
+
 
 const int N = 200005;
 
 void solve() {
-	int n;
-	cin>>n;
 
-	vi arr(n);
-    fori(n) cin>>arr[i];
+   int n;
+   vi arr(n);
+   deque<int> dq(n);
 
-    fori(n) cout<<arr[i]<<endl;
+   fori(n) {
+        int temp;
+        cin>>temp;
+        dq.push_back(temp);
+   }
+
+
 
 }
 
@@ -132,7 +110,7 @@ int32_t main()
 
 
 	int t = 1;
-//	cin >> t;
+	cin >> t;
 	while (t--) solve();
 
 	cerr << "Run Time : " << ((double)(clock() - z) / CLOCKS_PER_SEC);

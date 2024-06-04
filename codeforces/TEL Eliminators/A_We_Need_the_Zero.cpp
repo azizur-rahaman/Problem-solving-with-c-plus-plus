@@ -74,55 +74,31 @@ void sieve(int n){
 }
 
 
-void printSubArrays(const vi& arr, int start, int end, vector<vector<int>>& result) {
-  if (end == arr.size()) {
-    return;
-  }
-  else if (start > end) {
-    printSubArrays(arr, 0, end + 1, result);
-  }
-  else {
-    std::vector<int> subarray(arr.begin() + start, arr.begin() + end);
-    result.push_back(subarray);
-    printSubArrays(arr, start + 1, end, result);
-  }
-
-
-}
-
-
-void generateSubsequences(const vi& arr, int index, vi& subsequence, vvi& subsequences) {
-    int n = arr.size();
-
-    // Base case: If we reach the end of the array
-    if (index == n) {
-        // Add the current subsequence to the list of subsequences
-        subsequences.push_back(subsequence);
-        return;
-    }
-
-    // Exclude the current element
-    generateSubsequences(arr, index + 1, subsequence, subsequences);
-
-    // Include the current element
-    subsequence.push_back(arr[index]);
-    generateSubsequences(arr, index + 1, subsequence, subsequences);
-
-    // Backtrack to exclude the current element for the next iteration
-    subsequence.pop_back();
-}
-
 const int N = 200005;
 
 void solve() {
-	int n;
-	cin>>n;
 
-	vi arr(n);
+    int n;
+    cin>>n;
+
+    vi arr(n);
+
     fori(n) cin>>arr[i];
+    
 
-    fori(n) cout<<arr[i]<<endl;
+    for(int i=0; i < 256; i++){
+        int result = (arr[0] ^ i);
+        for(int j=1; j<n; j++){
+            result = result ^ (arr[j] ^ i);
+        }
 
+        if(result == 0) {
+            cout<<i<<endl;
+            return;
+        }
+    }
+
+    cout<<-1<<endl;
 }
 
 int32_t main()
@@ -132,7 +108,7 @@ int32_t main()
 
 
 	int t = 1;
-//	cin >> t;
+	cin >> t;
 	while (t--) solve();
 
 	cerr << "Run Time : " << ((double)(clock() - z) / CLOCKS_PER_SEC);

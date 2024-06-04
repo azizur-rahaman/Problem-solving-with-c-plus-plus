@@ -7,13 +7,10 @@
             ],
             "defines": [],
             "macFrameworkPath": [
-                "/System/Library/Frameworks",
-                "/Library/Frameworks"
+                "/Applications/Xcode.app/Contents/Develope/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks"
             ],
-            "compilerPath": "/usr/local/bin/gcc-14",
-            "cStandard": "c11",
-            "cppStandard": "c++17",
-            "intelliSenseMode": "gcc-x64"
+            "compilerPath": "/opt/homebrew/opt/gcc/bin/gcc",
+            "intelliSenseMode": "macos-clang-arm64"
         }
     ],
     "version": 4

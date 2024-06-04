@@ -1,4 +1,6 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
+#include <pthread.h>
+
 using namespace std;
 
 #define int            long long int
@@ -73,55 +75,74 @@ void sieve(int n){
     print(pr);    
 }
 
-
-void printSubArrays(const vi& arr, int start, int end, vector<vector<int>>& result) {
-  if (end == arr.size()) {
-    return;
-  }
-  else if (start > end) {
-    printSubArrays(arr, 0, end + 1, result);
-  }
-  else {
-    std::vector<int> subarray(arr.begin() + start, arr.begin() + end);
-    result.push_back(subarray);
-    printSubArrays(arr, start + 1, end, result);
-  }
-
-
-}
-
-
-void generateSubsequences(const vi& arr, int index, vi& subsequence, vvi& subsequences) {
-    int n = arr.size();
-
-    // Base case: If we reach the end of the array
-    if (index == n) {
-        // Add the current subsequence to the list of subsequences
-        subsequences.push_back(subsequence);
-        return;
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
     }
-
-    // Exclude the current element
-    generateSubsequences(arr, index + 1, subsequence, subsequences);
-
-    // Include the current element
-    subsequence.push_back(arr[index]);
-    generateSubsequences(arr, index + 1, subsequence, subsequences);
-
-    // Backtrack to exclude the current element for the next iteration
-    subsequence.pop_back();
+    return a;
 }
+
 
 const int N = 200005;
 
 void solve() {
-	int n;
-	cin>>n;
 
-	vi arr(n);
-    fori(n) cin>>arr[i];
+   int n;
+   cin>>n;
 
-    fori(n) cout<<arr[i]<<endl;
+   vi arr(n);
+   vi prefix(n,0);
+
+   vi indexes;
+
+   bool flag = true;
+
+   fori(n){
+        int temp;
+        cin>>temp;
+
+        arr[i] = temp;
+
+        if(i == 0){
+            prefix[0] = temp;
+        }else{
+            prefix[i] = temp;
+        }
+
+        if( i !=0 && (prefix[i-1] == temp)) flag = false, indexes.push_back(i);
+   }
+
+   int cnt = count(arr.begin(), arr.end(), arr[0]);
+
+   if(cnt == n){
+    NO;
+    return;
+   }
+
+   if(flag){
+    YES;
+    print(arr);
+    return;
+   }
+    
+    YES;
+    int k = 0;
+
+    fori(n){
+        if(i+1 == indexes[k]){
+            cout<<arr[i+1]<<" ";
+            arr[i+1] = arr[i];
+            k++;
+        }else{
+            cout<<arr[i]<<" ";
+        }
+
+
+    }
+
+    cout<<endl;
 
 }
 
@@ -132,10 +153,9 @@ int32_t main()
 
 
 	int t = 1;
-//	cin >> t;
+	cin >> t;
 	while (t--) solve();
 
 	cerr << "Run Time : " << ((double)(clock() - z) / CLOCKS_PER_SEC);
-
 	return 0;
 }
