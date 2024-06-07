@@ -11,7 +11,7 @@
 #include<bitset>
 using namespace std;
 
-#define int            long long int
+#define int            unsigned long long int
 #define F              first
 #define S              second
 #define pb             push_back
@@ -92,16 +92,15 @@ const int N = 200005;
 void solve() {
     int n;
     cin >> n;
-    bitset<64> binary(n);
+    bitset<32> binary(n);
 
-    string bstring = binary.to_string();
+    string rstring = binary.to_string();
 
-    for (int i = 0; i < bstring.size()-1; i += 2){
-        swap(bstring[i],bstring[i+1]);
-    }
+    reverse(rstring.begin(), rstring.end());
 
-    bitset<64> newbinary(bstring);
-    cout<<newbinary.to_ulong()<<" ";
+    bitset<32> rbinary(rstring);
+
+    cout<<rbinary.to_ulong()<<" ";
 
 }
 
@@ -115,7 +114,7 @@ int32_t main()
 	cin >> t;
 	while (t--) solve();
 
-	cerr << "Run Time : " << ((double)(clock() - z) / CLOCKS_PER_SEC);
+	// cerr << "Run Time : " << ((double)(clock() - z) / CLOCKS_PER_SEC);
 
 	return 0;
 }

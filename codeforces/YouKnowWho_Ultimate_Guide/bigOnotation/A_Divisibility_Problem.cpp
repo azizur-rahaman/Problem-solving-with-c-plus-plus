@@ -8,7 +8,7 @@
 #include <ctime>
 #include <queue>
 #include <cmath>
-#include<bitset>
+
 using namespace std;
 
 #define int            long long int
@@ -86,28 +86,25 @@ void sieve(int n){
 
 const int N = 200005;
 
-
- 
-
 void solve() {
-    int n;
-    cin >> n;
-    bitset<64> binary(n);
+	int a,b;
+	cin>>a>>b;
 
-    string bstring = binary.to_string();
+    int modd = a % b;
 
-    for (int i = 0; i < bstring.size()-1; i += 2){
-        swap(bstring[i],bstring[i+1]);
+    if(modd == 0){
+        cout<<0<<endl;
+    }else if(a>b){
+        cout<< b-modd<<endl;
+    }else {
+        cout<< (b-a)<<endl;
     }
-
-    bitset<64> newbinary(bstring);
-    cout<<newbinary.to_ulong()<<" ";
 
 }
 
 int32_t main()
 {
-	ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+	ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
 	clock_t z = clock();
 
 
@@ -115,7 +112,7 @@ int32_t main()
 	cin >> t;
 	while (t--) solve();
 
-	cerr << "Run Time : " << ((double)(clock() - z) / CLOCKS_PER_SEC);
+	// cerr << "Run Time : " << ((double)(clock() - z) / CLOCKS_PER_SEC);
 
 	return 0;
 }
