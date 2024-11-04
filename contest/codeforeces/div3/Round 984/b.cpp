@@ -2,57 +2,51 @@
 #include<vector>
 #include<map>
 #include<set>
+#include<algorithm>
 
-    
 using namespace std;
 
-typedef long long int;         // Define a name for long long int
-typedef vector<int> vi;       // Define vi as vector<int>
-typedef vector<vi> vvi;       // Define vvi as vector of vector<int>
-typedef pair<int, int> pii;   // Define pii as pair<int, int>
-typedef map<int, int> mii;    // Define mii as map<int, int>
+typedef long long ll;         // Define a name for long long ll
+typedef vector<ll> vi;        // Define vi as vector<ll>
+typedef vector<vi> vvi;       // Define vvi as vector of vector<ll>
+typedef pair<ll, ll> pii;     // Define pii as pair<ll, ll>
+typedef map<ll, ll> mii;      // Define mii as map<ll, ll>
 
 void solve(){
-    int x,y;
-    cin>>x>>y;
+    ll shelves, brand;
+    cin >> shelves >> brand;
 
     mii mp;
 
-    for(int i=0; i<x; i++){
-        int a,b;
-        cin>>a>>b;
-
+    for (ll i = 0; i < brand; i++) {
+        ll a, b;
+        cin >> a >> b;
         mp[a] += b;
     }
 
-    int ans = 0;
-
     vi arr;
 
-    for(auto it : mp){
-        arr.push_back(it.second);
+    for (auto i: mp) {
+        arr.push_back(i.second);
     }
 
     sort(arr.begin(), arr.end());
 
-    int cnt =0;
+    ll cnt = 0;
+    ll i = arr.size() - 1;
 
-    int i = arr.size()-1;
-
-    for(int j=0; j<x; j++){
+    for (ll j = 0; j < shelves && i >= 0; j++, i--) {
         cnt += arr[i];
-        i--;
     }
 
-    cout<<cnt<<endl;
-
+    cout << cnt << endl;
 }
 
-int32_t main(){
+int main() {
+    ll t = 1;
+    cin >> t;
 
-    int t=1;
-    cin>>t;
+    while (t--) solve();
 
-    while(t--) solve();
-
+    return 0;
 }
