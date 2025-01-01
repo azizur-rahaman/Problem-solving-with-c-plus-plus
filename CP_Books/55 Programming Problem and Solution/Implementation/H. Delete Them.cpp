@@ -19,8 +19,8 @@ using namespace std;
 #define fori(n)        for(int i = 0; i < n; i++)
 #define forir(n)       for(int i = n-1; i >=0 ; i--)
 #define forij(n)       for(int i = 0; i < n; i++) for(int j = 0; j < n; j++)
-#define YES            cout<<"YES"<<endl
-#define NO             cout<<"NO"<<endl
+#define YES            cout<<"Yes"<<endl
+#define NO             cout<<"No"<<endl
 #define cinvi(n,vect)  for(int i= 0; i<n; i++){ int temp; cin>>temp; vect.pb(temp);}
 
 void solve() {
@@ -52,6 +52,8 @@ void solve() {
         if (del[i] <= 0 || del[i] > n || arr[del[i] - 1] != len) {
             flag = false;
             break;
+        }else{
+            
         }
     }
 
